@@ -1,0 +1,225 @@
+<!doctype html>
+<html lang="en" class="is-locked">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<meta name="theme-color" content="#0e0408">
+<title>{{groom_name}} &amp; {{bride_name}} — Wedding Invitation</title>
+<link rel="icon" href="assets/img/ganesha.webp">
+<link rel="stylesheet" href="assets/fonts/fonts.css">
+<link rel="stylesheet" href="styles.css">
+</head>
+<body class="is-locked">
+<svg class="defs" aria-hidden="true"><defs>
+  <symbol id="lotus" viewBox="0 0 64 40">
+    <path fill="currentColor" d="M32 38c-3-9-1-18 0-24 1 6 3 15 0 24zm0 0c-8-6-16-8-22-8 6-2 14 0 22 8zm0 0c8-6 16-8 22-8-6-2-14 0-22 8zM32 14c-6-8-14-12-20-12 8 2 14 6 20 12zm0 0c6-8 14-12 20-12-8 2-14 6-20 12zM32 8c0-6 0-8 0-8s0 2 0 8z"/>
+  </symbol>
+</defs></svg>
+
+<audio id="music" src="assets/music.mp3" preload="none" loop></audio>
+<button class="eq" type="button" id="musicBtn" aria-label="Toggle music" hidden>
+  <span></span><span></span><span></span><span></span>
+</button>
+<button class="orb" type="button" id="orb" aria-label="Scroll to next section" hidden>
+  <svg viewBox="0 0 48 48"><circle cx="24" cy="24" r="18" fill="none" stroke="currentColor" stroke-width="1.2"/><circle class="orb__dot" cx="24" cy="24" r="3" fill="currentColor"/></svg>
+</button>
+
+<!-- COVER -->
+<section class="cover" id="cover">
+  <img class="cover__bg" src="assets/img/cover_couple.webp" alt="">
+  <div class="cover__shade"></div>
+  <span class="corner c-tl" aria-hidden="true">❦</span>
+  <span class="corner c-tr" aria-hidden="true">❦</span>
+  <span class="corner c-bl" aria-hidden="true">❦</span>
+  <span class="corner c-br" aria-hidden="true">❦</span>
+  <div class="cover__inner">
+    <p class="cover__om deva">{{cover_om}}</p>
+    <p class="cover__sa deva">{{cover_sanskrit}}</p>
+    <p class="cover__bless cinzel">{{cover_blessing}}</p>
+    <h1 class="cover__name" data-fit="28">{{bride_name}}</h1>
+    <p class="cover__fleur" aria-hidden="true">❦</p>
+    <h1 class="cover__name" data-fit="28">{{groom_name}}</h1>
+    <div class="lotus-row" aria-hidden="true"><i></i><svg><use href="#lotus"/></svg><i></i></div>
+    <p class="cover__kicker cinzel deva">{{cover_kicker}}</p>
+    <button class="btn-open" type="button" id="openBtn"><span class="cinzel">{{open_label}}</span></button>
+  </div>
+</section>
+
+<!-- HERO -->
+<section class="hero" id="hero">
+  <img class="hero__bg" id="hero-a" src="assets/img/hero_palace1.webp" alt="">
+  <img class="hero__bg2" id="hero-b" src="assets/img/hero_palace2.webp" alt="">
+  <div class="hero__shade"></div>
+  <div class="hero__inner">
+    <img class="hero__ganesha" src="assets/img/ganesha.webp" alt="">
+    <p class="hero__kicker cinzel">{{hero_kicker}}</p>
+    <h2 class="hero__title">{{hero_title}}</h2>
+    <div class="gold-rule" aria-hidden="true"></div>
+  </div>
+  <div class="hero__scroll" id="hero-scroll">
+    <span class="hero__arrow">↓</span>
+    <span class="cinzel">Scroll</span>
+  </div>
+</section>
+
+<!-- BLESSING -->
+<section class="section bless-sec" id="invoke">
+  <p class="om deva">{{bless_om}}</p>
+  <div class="gold-rule tiny" aria-hidden="true"></div>
+  <div class="bless-sec__text">
+    <p class="bless-sec__lines">{{bless_lines}}</p>
+    <p class="bless-sec__sign cinzel deva">{{bless_sign}}</p>
+  </div>
+  <div class="lotus-row" aria-hidden="true"><i></i><svg><use href="#lotus"/></svg><i></i></div>
+</section>
+
+<!-- COUNTDOWN + SCRATCH -->
+<section class="section count-sec" id="countdown">
+  <p class="kicker cinzel">{{countdown_kicker}}</p>
+  <div class="count" id="count">
+    <div class="count__cell"><span class="count__n" id="cDays">00</span><span class="cinzel">Days</span></div>
+    <div class="count__cell"><span class="count__n" id="cHours">00</span><span class="cinzel">Hours</span></div>
+    <div class="count__cell"><span class="count__n" id="cMins">00</span><span class="cinzel">Minutes</span></div>
+    <div class="count__cell"><span class="count__n" id="cSecs">00</span><span class="cinzel">Seconds</span></div>
+  </div>
+  <div class="scratch" id="scratch">
+    <div class="scratch__card">
+      <p class="scratch__date" id="scratch-date"></p>
+      <canvas class="scratch__foil" id="scratch-foil"></canvas>
+      <p class="scratch__hint cinzel" id="scratch-hint">✦ {{scratch_hint}} ✦</p>
+    </div>
+    <p class="scratch__label cinzel">✦ {{scratch_label}} ✦</p>
+    <a class="btn-cal cinzel" id="calBtn" href="#">Add To Calendar</a>
+  </div>
+</section>
+
+<!-- STORY -->
+<section class="section" id="story">
+  <p class="kicker cinzel">{{story_kicker}}</p>
+  <h2 class="title">{{story_title}}</h2>
+  <div class="gold-rule" aria-hidden="true"></div>
+  <p class="lead" data-optional="story_lead">{{story_lead}}</p>
+  <figure class="story-fig">
+    <img src="{{story_image}}" alt="{{bride_name}} and {{groom_name}}">
+    <figcaption>{{bride_name}} <em>&amp;</em> {{groom_name}}</figcaption>
+  </figure>
+  <ol class="beats" id="beats"></ol>
+  <div class="lotus-row" aria-hidden="true"><i></i><svg><use href="#lotus"/></svg><i></i></div>
+</section>
+
+<!-- BRIDE / GROOM -->
+<section class="section" id="couple">
+  <div class="intro-card">
+    <div class="intro" data-optional="bride_name">
+      <p class="cinzel deva">{{bride_label_hi}}</p>
+      <h3 class="intro__name" data-fit="26">{{bride_name}}</h3>
+      <p class="intro__role">{{bride_role}}</p>
+      <p class="intro__parents" data-optional="bride_parents">D/o. {{bride_parents}}</p>
+      <p class="intro__city cinzel" data-optional="bride_city">{{bride_city}}</p>
+    </div>
+    <p class="intro__amp" aria-hidden="true">&amp;</p>
+    <div class="intro" data-optional="groom_name">
+      <p class="cinzel deva">{{groom_label_hi}}</p>
+      <h3 class="intro__name" data-fit="26">{{groom_name}}</h3>
+      <p class="intro__role">{{groom_role}}</p>
+      <p class="intro__parents" data-optional="groom_parents">S/o. {{groom_parents}}</p>
+      <p class="intro__city cinzel" data-optional="groom_city">{{groom_city}}</p>
+    </div>
+    <p class="intro__close">{{couple_closing}}</p>
+  </div>
+  <div class="lotus-row" aria-hidden="true"><i></i><svg><use href="#lotus"/></svg><i></i></div>
+</section>
+
+<!-- EVENTS -->
+<section class="section" id="events">
+  <p class="kicker cinzel">{{events_kicker}}</p>
+  <h2 class="title">{{events_title}}</h2>
+  <div class="gold-rule" aria-hidden="true"></div>
+  <div id="eventList"></div>
+</section>
+
+<!-- GALLERY -->
+<section class="section" id="gallery">
+  <div class="lotus-row" aria-hidden="true"><i></i><svg><use href="#lotus"/></svg><i></i></div>
+  <p class="kicker cinzel">{{gallery_kicker}}</p>
+  <h2 class="title">{{gallery_title}}</h2>
+  <div class="gold-rule" aria-hidden="true"></div>
+  <div class="gallery" id="galleryGrid"></div>
+  <div class="lotus-row" aria-hidden="true"><i></i><svg><use href="#lotus"/></svg><i></i></div>
+</section>
+
+<!-- BLESSINGS FORM -->
+<section class="section" id="rsvp">
+  <p class="kicker cinzel">{{blessings_kicker}}</p>
+  <h2 class="title">{{blessings_title}}</h2>
+  <div class="gold-rule" aria-hidden="true"></div>
+  <p class="lead">{{blessings_lead}}</p>
+  <form class="bless-form" id="blessForm" autocomplete="on">
+    <div class="row2">
+      <label class="cinzel">Name<input name="name" required placeholder="Your name" maxlength="80"></label>
+      <label class="cinzel">Relation<input name="relation" placeholder="Friend" maxlength="40"></label>
+    </div>
+    <label class="cinzel">Message<textarea name="message" rows="4" placeholder="Your wishes…" maxlength="400"></textarea></label>
+    <p class="err" id="bErr" hidden>Please share your name.</p>
+    <button class="btn-send cinzel" type="submit">Send</button>
+  </form>
+  <div class="thanks" id="bThanks" hidden>
+    <p id="bThanksMsg"></p>
+    <a class="btn-send cinzel" id="bWa" hidden target="_blank" rel="noopener">Share on WhatsApp</a>
+  </div>
+</section>
+
+<!-- FAMILY -->
+<section class="section" id="family">
+  <div class="lotus-row" aria-hidden="true"><i></i><svg><use href="#lotus"/></svg><i></i></div>
+  <p class="kicker cinzel deva">{{family_kicker}}</p>
+  <h2 class="title">{{family_title}}</h2>
+  <div class="gold-rule" aria-hidden="true"></div>
+  <div class="family" id="familyGrid"></div>
+  <p class="kicker cinzel deva" style="margin-top:3.5rem" data-optional="friends_title">{{friends_kicker}}</p>
+  <h2 class="title" data-optional="friends_title">{{friends_title}}</h2>
+  <div class="friends" id="friendsList"></div>
+  <p class="friends__close cinzel" data-optional="friends_closing">{{friends_closing}}</p>
+  <div class="lotus-row" aria-hidden="true"><i></i><svg><use href="#lotus"/></svg><i></i></div>
+</section>
+
+<!-- VENUE -->
+<section class="section" id="venue">
+  <p class="kicker cinzel">{{venue_kicker}}</p>
+  <h2 class="title">{{venue_title}}</h2>
+  <div class="gold-rule" aria-hidden="true"></div>
+  <figure class="venue-fig">
+    <img src="assets/img/hero_palace2.webp" alt="{{venue_name}}">
+    <figcaption>
+      <strong>{{venue_name}}</strong>
+      <span>{{venue_address}}</span>
+    </figcaption>
+  </figure>
+  <a class="btn-cal cinzel" href="{{venue_map}}" target="_blank" rel="noopener">Get Directions</a>
+  <div class="lotus-row" aria-hidden="true"><i></i><svg><use href="#lotus"/></svg><i></i></div>
+</section>
+
+<!-- CLOSE -->
+<section class="section close-sec" id="close">
+  <div class="intro-card close-card">
+    <p class="lead">{{close_lead}}</p>
+    <h2 class="title italic">{{close_title}}</h2>
+    <div class="gold-rule" aria-hidden="true"></div>
+    <p class="lead">{{close_body}}</p>
+  </div>
+  <h2 class="close-names"><span data-fit="28">{{bride_name}}</span> <em>&amp;</em> <span data-fit="28">{{groom_name}}</span></h2>
+  <div class="gold-rule" aria-hidden="true"></div>
+  <p class="close-sa deva">{{close_sanskrit}}</p>
+  <p class="igs" data-optional="instagram_groom,instagram_bride">
+    <span data-optional="instagram_groom">@{{instagram_groom}}</span>
+    <span data-optional="instagram_bride">@{{instagram_bride}}</span>
+  </p>
+  <p class="credit">An original invitation by Just For You.</p>
+</section>
+
+<script src="assets/jfy-codec.js"></script>
+<script src="assets/sample-data.js"></script>
+<script src="assets/data-loader.js"></script>
+<script src="script.js"></script>
+</body>
+</html>
